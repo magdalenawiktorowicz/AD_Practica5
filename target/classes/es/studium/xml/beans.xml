@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd"> 
+	
+	<bean id="persona" class="es.studium.ADpractica5.Persona" scope="prototype">
+		<property name="nombre" value="David" />
+	</bean>
+
+	<bean id="cocina" class="es.studium.ADpractica5.Habitacion">
+		<property name="nombreHabitacion" value="Cocina" />
+		<property name="pisoHabitacion" value="1" />
+		<property name="tieneVentana" value="true" />
+		<property name="persona" ref="persona" />
+	</bean>
+	<bean id="study" class="es.studium.ADpractica5.Habitacion">
+		<property name="nombreHabitacion" value="Study" />
+		<property name="pisoHabitacion" value="2" />
+		<property name="tieneVentana" value="true" />
+		<property name="persona" ref="persona" />
+	</bean>
+	<bean id="salón" class="es.studium.ADpractica5.Habitacion">
+		<property name="nombreHabitacion" value="Salón" />
+		<property name="pisoHabitacion" value="0" />
+		<property name="tieneVentana" value="true" />
+		<property name="persona" ref="persona" />
+	</bean>
+	
+	<bean id="casa" class="es.studium.ADpractica5.Casa">
+		<property name="nombreCasa" value="Casa Santa Clara"/>
+		<property name="habitaciones">
+			<list>
+				<ref bean="cocina" />
+				<ref bean="study" />
+				<ref bean="salón" />
+			</list>
+		</property>
+		<property name="propietario" ref="persona"/>
+	</bean>
+</beans>
